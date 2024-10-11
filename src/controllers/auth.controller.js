@@ -30,7 +30,14 @@ export const register = async (req, res) => {
       name: name,
     });
 
-    res.cookie("token", token);
+    const cookieOptions = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      maxAge: 3600000,
+    };
+
+    res.cookie("token", token, cookieOptions);
 
     res.status(200).json({
       name: name,
@@ -66,7 +73,14 @@ export const login = async (req, res) => {
       name: findUser.name,
     });
 
-    res.cookie("token", token);
+    const cookieOptions = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      maxAge: 3600000,
+    };
+
+    res.cookie("token", token, cookieOptions);
 
     res.status(200).json({
       name: findUser.name,
