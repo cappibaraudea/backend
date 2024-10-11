@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://cappibaraudea.github.io",
+    origin: "*",
     credentials: true,
   })
 );
